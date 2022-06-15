@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("hello go in bazel.")
+	fmt.Println("Hello go in bazel.")
 }
