@@ -1,2 +1,2 @@
 # dg1
-dangao git monorepo pract
+dangao git monorepo pract.
