@@ -1,0 +1,33 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project")
+load("@npm//typescript:index.bzl", "tsc")
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+
+tsc(
+    name = "main_tsc",
+    outs = ["main.js"],
+    args = [
+        "-p",
+        "$(execpath tsconfig.json)",
+        "--outDir",
+        # $(RULEDIR) is a shorthand for the dist/bin directory where Bazel requires we write outputs
+        "$(RULEDIR)",
+    ],
+    data = [
+        "main.ts",
+        "tsconfig.json",
+    ],
+)
+
+ts_project(
+    name = "main",
+    composite = True,
+    srcs = [
+        "main.ts",
+    ],
+    tsconfig = "tsconfig.json",
+    validate = False,
+    deps = [
+        # "@npm//protobufjs",
+    ],
+)
