@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package hello;
+
+message SayHello {
+    string id = 1;
+    string message = 2;
+}
+
+message SayHelloResponse {
+    int32 code = 1;
+    string message = 2;
+}

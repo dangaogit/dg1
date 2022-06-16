@@ -1,0 +1,6 @@
+java_binary(
+    name = "java_server",
+    srcs = ["JavaServer.java"],
+    main_class = "JavaServer",
+    deps = ["//examples/protobuf:hello_java_proto"],
+)

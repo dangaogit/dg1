@@ -1,0 +1,10 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary")
+
+go_binary(
+    name = "say_hello_server_bin",
+    srcs = [ "main.go"],
+    deps = [
+        "//examples/protobuf:hello_go_proto",
+         "@com_github_golang_protobuf//proto:go_default_library",
+    ],
+)
