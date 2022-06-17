@@ -34,7 +34,7 @@ func handleConn(listen net.Listener) {
 
 func sayHelloResponse(conn net.Conn, sayHello *hello.SayHello) {
 	message := fmt.Sprintf("Hello '%v', i'm go say hello server! thx your visit.", sayHello.GetId())
-	resp, err := proto.Marshal(&hello.SayHelloResponse{Code: 0, Message: message})
+	resp, err := proto.Marshal(&hello.SayHelloResponse{Code: 1, Message: message})
 	if err != nil {
 		log.Panicln(err.Error())
 	}

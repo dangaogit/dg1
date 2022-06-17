@@ -1,9 +1,12 @@
 {
     "compilerOptions": {
+      "experimentalDecorators": true,
+      "target": "ESNEXT",
       "strict": true,
       "declaration": true,
-      "experimentalDecorators": true,
-      "lib": ["ESNEXT", "dom"],
+      "moduleResolution": "node",
+      "module": "CommonJS",
+      "lib": ["ESNEXT"],
       // Include the output directory in rootDirs so that generated .d.ts files
       // can be used for type-checking in the editor, for example the car.proto
       // produces a car.d.ts.
@@ -16,6 +19,7 @@
           "bazel-out/darwin-dbg/bin",
           "bazel-out/k8-dbg/bin",
           "bazel-out/x64_windows-dbg/bin",
+          "bazel-bin/examples/protobuf"
       ]
   },
   "include": ["*.ts"]

@@ -1,0 +1,33 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+ts_project(
+    name = "main",
+    declaration = True,
+    srcs = glob(
+        ["*.ts"],
+        exclude = ["*.test.ts"]
+    ),
+    tsconfig = "tsconfig.json",
+    deps = [
+        "@npm//@nestjs/common",
+        "@npm//@nestjs/core",
+        "@npm//@nestjs/platform-express",
+        "@npm//@types/node",
+        "@npm//tslib",
+        "@npm//rxjs",
+        "@npm//reflect-metadata",
+        # "//examples/protobuf:hello_ts_proto",
+        "@npm//protobufjs",
+        "@npm//google-protobuf",
+        "@npm//@types/google-protobuf",
+    ]
+)
+
+nodejs_binary(
+    name = "main_bin",
+    data = [
+        ":main"
+    ],
+    entry_point = ":main.ts"
+)

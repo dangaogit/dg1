@@ -18,3 +18,12 @@ java_proto_library(
     name = "hello_java_proto",
     deps = [":hello_proto"],
 )
+
+load("@npm//protoc-gen-ts:index.bzl", "ts_proto_library")
+ts_proto_library(
+    name = "hello_ts_proto",
+    deps = [
+        ":hello_proto"
+    ],
+    visibility = ["//visibility:public"],
+)
